@@ -1,5 +1,7 @@
 # Telegram Remote CMD Bot
 
+[📄 Tiếng Việt](README_vi.md)
+
 ## Overview
 A simple Python script that sets up a Telegram bot capable of executing shell commands remotely via the `/cmd` command. The primary purpose of this tool is to bypass and counteract malicious activities from screen-sharers during client computer inspections. You can use this bot to run commands on your PC securely and discreetly.
 
