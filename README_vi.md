@@ -1,71 +1,73 @@
-# Console Forwarder
+# Telegram Remote CMD Bot
 
-## Tổng quan
-Một script Python đơn giản thiết lập một bot Telegram có khả năng thực thi các lệnh shell từ xa thông qua lệnh `/cmd`. Mục đích chính của công cụ này là để bypass và đối phó với các hành động khả nghi từ những screen-sharers trong quá trình kiểm tra máy tính của bạn. Bạn có thể sử dụng bot này để chạy các lệnh trên PC của mình một cách an toàn và kín đáo.
+[📄 Tiếng Việt](README.md)
 
-Bằng cách thực thi lệnh qua Telegram, bạn tránh việc cấp toàn quyền điều khiển từ xa, giảm nguy cơ thay đổi trái phép hoặc lộ dữ liệu. Điều này đặc biệt hữu ích trong các tình huống khác nhau, chủ yếu tránh Screen-sharers.
+## Overview
+A simple Python script that sets up a Telegram bot capable of executing shell commands remotely via the `/cmd` command. The primary purpose of this tool is to bypass and counteract malicious activities from screen-sharers during client computer inspections. You can use this bot to run commands on your PC securely and discreetly.
 
-**Lưu ý:** Sử dụng công cụ này một cách có trách nhiệm và đảm bảo bạn có quyền truy cập và thực thi lệnh trên máy. Công cụ này được tạo để chứng minh khái niệm và không nhằm mục đích sử dụng không hợp pháp.
+By running commands through Telegram, you avoid granting full remote control, reducing the risk of unauthorized changes or data exposure. This is particularly useful in scenarios like tech support, debugging, or automated tasks where screen visibility isn't necessary.
 
-## Tính năng
-- Thực thi bất kỳ lệnh shell nào từ xa qua Telegram.
-- Thiết lập đơn giản.
-- Chạy nền để tránh bị phát hiện trong quá trình chia sẻ màn hình.
-- Giới hạn tương tác chỉ ở đầu ra dòng lệnh, ngăn chặn thao túng trực quan.
+**Note:** Use this tool responsibly and ensure you have permission to access and execute commands on the target machine. This is made for concept-proving and wasn't intended for malicious purposes.
 
-## Yêu cầu
-- Python 3.6 trở lên
-- Token Bot Telegram (tạo qua [BotFather](https://t.me/botfather))
-- Thư viện đã cài đặt: `python-telegram-bot` (cài qua `pip install python-telegram-bot`)
+## Features
+- Execute any shell command remotely via Telegram.
+- Simple setup with minimal dependencies.
+- Runs in the background to avoid detection during screen-sharing.
+- Limits interaction to command-line output, preventing visual manipulation.
 
-## Cài đặt
-1. Sao chép repo:
+## Requirements
+- Python 3.6+
+- Telegram Bot Token (create one via [BotFather](https://t.me/botfather))
+- Installed libraries: `python-telegram-bot` (install via `pip install python-telegram-bot`)
+
+## Installation
+1. Clone the repository:
    ```
    git clone https://github.com/vunguyen-207/Console-Forwarder/
    cd Console-Forwarder
    ```
 
-2. Cài đặt các requirements:
+2. Install dependencies:
    ```
    pip install -r requirements.txt
    ```
 
-3. Chỉnh sửa script (`bot.py`) để thay thế `YourToken` và `YourChatID` bằng thông tin của bạn:
-   - `YourToken`: Token bot Telegram của bạn.
-   - `YourChatID`: ID cuộc trò chuyện mà bot sẽ phản hồi (ví dụ: cuộc trò chuyện cá nhân hoặc nhóm của bạn).
+3. Edit the script (`bot.py`) to replace `BOT_TOKEN` and `CHAT_ID` with your own:
+   - `YourToken`: Your Telegram bot token.
+   - `YourChatID`: The chat ID where the bot will respond (e.g., your personal chat or a group).
 
-4. Chạy script:
+4. Run the script:
    ```
    python bot.py
    ```
 
-Để chạy ở chế độ nền:
-- Trên Windows: Sử dụng `python bot.py` để chạy mà không hiển thị MD.
-- Trên Linux/Mac: Sử dụng `nohup python bot.py &` hoặc chuyển đổi thành service.
+To run it in the background (for bypass purposes):
+- On Windows: Use `pythonw bot.py` to run without a console window.
+- On Linux/Mac: Use `nohup python bot.py &` or convert to a service.
 
-Để hoạt động ẩn:
-- Biên dịch thành executable bằng PyInstaller: `pyinstaller --onefile --noconsole bot.py`
-- Thêm vào StartUp hoặc Task Scheduler để đảm bảo chạy ẩn, hoặc thực hiện bằng các cách khác nếu bạn biết.
+For persistence and hidden execution:
+- Compile to executable using PyInstaller: `pyinstaller --onefile --noconsole bot.py`
+- Add to startup or task scheduler to ensure it runs silently, or do that using the public methods.
 
-## Cách sử dụng
-1. Khởi động bot bằng cách chạy script.
-2. Trong Telegram, gửi `/cmd <command>` đến bot.
-   - Ví dụ: `/cmd dir` (trên Windows) hoặc `/cmd ls` (trên Linux).
-3. Bot sẽ thực thi lệnh và trả lời với kết quả output.
+## Usage
+1. Start the bot by running the script.
+2. In Telegram, send `/cmd <your_command>` to the bot.
+   - Ex: `/cmd dir` (on Windows) or `/cmd ls` (on Linux).
+3. The bot will execute the command and reply with the output.
 
-Trong một phiên screen-share, bot sẽ chạy ẩn, cho phép bạn thực hiện các hành động mà không bị Screen-sharer nhìn thấy hoặc can thiệp trực tiếp.
+During a screen-sharing session, the bot runs invisibly, allowing you to perform actions without the sharer seeing or interfering directly.
 
-## Cân nhắc bảo mật
-- **Hãy code lại:** Đây là sản phẩm chứng minh khái niệm. Bạn cần recode lại để đảm bảo tính ẩn danh.
-- **Kiểm soát truy cập:** Hạn chế ChatID chỉ cho những người đáng tin cậy.
-- **Rủi ro lệnh:** Thực thi lệnh tùy ý có thể nguy hiểm; triển khai xác thực bổ sung nếu cần.
-- **Đạo đức:** Công cụ này giúp tránh truy cập màn hình không cần thiết, nhưng hãy đảm bảo tuân thủ luật pháp và chính sách.
+## Security Considerations
+- **Recode Required:** This is a rapidly developed proof-of-concept product. You will need to recode it to ensure complete anonymity in its operation.
+- **Access Control:** Restrict the chat ID to trusted users only.
+- **Command Risks:** Executing arbitrary commands can be dangerous; implement additional authentication if needed.
+- **Bypass Ethics:** This tool helps avoid unnecessary screen access but ensure compliance with laws and policies.
 
-## Giấy phép
-Giấy phép MIT - Xem [LICENSE](LICENSE) để biết chi tiết.
+## License
+MIT License - See [LICENSE](LICENSE) for details.
 
-## Đóng góp
-Hãy thoải mái tạo fork và gửi requests để cải thiện, chẳng hạn như thêm xác thực hoặc khác.
+## Contributing
+Feel free to fork and submit pull requests for improvements, such as adding authentication or more bypass techniques.
 
-## Tuyên bố từ chối trách nhiệm
-Công cụ này chỉ dành cho mục đích giáo dục và sử dụng hợp pháp. Mình không chịu trách nhiệm cho bất kỳ hành vi lạm dụng nào.
+## Disclaimer
+This tool is for educational and legitimate use only. I am not responsible for any misuse.
