@@ -31,8 +31,8 @@ By running commands through Telegram, you avoid granting full remote control, re
    ```
 
 3. Edit the script (`bot.py`) to replace `BOT_TOKEN` and `CHAT_ID` with your own:
-   - `BOT_TOKEN`: Your Telegram bot token.
-   - `CHAT_ID`: The chat ID where the bot will respond (e.g., your personal chat or a group).
+   - `YourToken`: Your Telegram bot token.
+   - `YourChatID`: The chat ID where the bot will respond (e.g., your personal chat or a group).
 
 4. Run the script:
    ```
@@ -57,7 +57,7 @@ During a screen-sharing session, the bot runs invisibly, allowing you to perform
 
 ## Security Considerations
 - **Recode Required:** This is a rapidly developed proof-of-concept product. You will need to recode it to ensure complete anonymity in its operation.
-- **Access Control:** Restrict the CHAT_ID to trusted users only.
+- **Access Control:** Restrict the chat ID to trusted users only.
 - **Command Risks:** Executing arbitrary commands can be dangerous; implement additional authentication if needed.
 - **Bypass Ethics:** This tool helps avoid unnecessary screen access but ensure compliance with laws and policies.
 
