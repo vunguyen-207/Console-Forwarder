@@ -1,6 +1,6 @@
 # Console Forwarder
 
-[📄 English](README.md)
+[📄 English](README_vi.md)
 
 ## Tổng quan
 Một script Python đơn giản thiết lập một bot Telegram có khả năng thực thi các lệnh shell từ xa thông qua lệnh `/cmd`. Mục đích chính của công cụ này là để bypass và đối phó với các hành động khả nghi từ những screen-sharers trong quá trình kiểm tra máy tính của bạn. Bạn có thể sử dụng bot này để chạy các lệnh trên PC của mình một cách an toàn và kín đáo.
